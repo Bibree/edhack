@@ -5,19 +5,33 @@ body {
 }
 
 a:link {
+	margin-top:20px;
 	color: #ffffff;
 	font-size: 24px;
 	padding: 10px 20px 10px 20px;
-	border: 5px #0084FF;
-	border-radius: 5px;
+	border: 5px  #0084FF;
 	background-color:#0084FF;
+	border-radius: 5px;
+	text-decoration:none;
 
 }
-
+a:visited {
+	color: #ffffff;
+	font-size: 24px;
+	padding: 10px 20px 10px 20px;
+	border: 5px  ridge #0084FF;
+	background-color:#0084FF;
 }
+
+a:hover {
+	transition:.3s;
+	background-color:#10074D;
+}
+
 footer{
 	margin-top: 15%;
 }
 img {
 	width: 350px;
+	margin-bottom: 70px;
 }
