@@ -1,8 +1,81 @@
 body {
-	background-color:#99CCFF;
+	background-color:#E0A116;
+	color: #ffffff;
+	font-family: arial;
 }
 div{
-	height:70px;
-	width:250px;
-	margin:auto;
+	width: 15.6em;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+p {
+	float:left;
+	margin:30px 0px 0px 0px;
+}
+.logo{
+	width:200px;
+	height:100px;
+}
+
+.inputbox {
+	border-color: #ffffff;
+	border-style: solid;
+	background-color: #E0A116;
+	width: 245px;
+	margin: 0px;
+}
+
+h6 {
+	margin-top: .5em;
+	margin-bottom: .5em;
+	font-family:;
+	font-size: 1em;
+}
+
+/* unvisited link */
+a:link {
+    color: #FFffff;
+}
+
+/* visited link */
+a:visited {
+    color: #ffffff;
+}
+
+/* mouse over link */
+a:hover {
+    color: #22A1D2;
+    transition:.3s;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
+}
+
+.signin {
+	background-color: #22A1D2;
+	border-color: #22A1D2;
+	font-family: "arial";
+	color: #ffffff;
+	width: 245px;
+	height: 25px;
+}
+
+img {
+	width: 300px;
+}
+.create{
+	background-color: #ff0000;
+	border-color: #ff0000;
+	font-family: "arial";
+	color: #ffffff;
+	width: 245px;
+	height: 25px;
+	margin-top: 20px;
+
+}
+footer{
+	margin-top: auto;
 }
