@@ -4,7 +4,7 @@ require "koala"
 require "pry"
 require "firebase"
 
-enable sessions:
+enable :sessions
 #comment
 post '/login' do
     
@@ -33,3 +33,4 @@ post '/login' do
     
     # checking password -> password matches?
     
+end
