@@ -14,9 +14,15 @@ end
 
 
 get '/class' do
-  # all classes
+  # get list of classes
 #  classes = get_posts(user_id)
   erb :"classes.html.erb"
+end
+
+get '/posts' do
+  # displays a list of all posts for all classes
+  posts = get_posts(session[:user_id])
+  "stub"
 end
 
 get '/class/add/:id' do
