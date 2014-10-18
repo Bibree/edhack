@@ -4,6 +4,7 @@ require "koala"
 require "pry"
 require "firebase"
 require "./classforms.rb"
+require 'omniauth'
 require 'omniauth-twitter'
 
 configure do
@@ -19,7 +20,7 @@ helpers do
   # define a current_user method, so we can be sure if an user is
   # authenticated
   def current_user
-    !session[:uid].nil?
+    !session[:user_id].nil?
   end
 end
 
@@ -27,7 +28,7 @@ before do
   # we do not want to redirect to twitter when the path info starts
   # with /auth/
   pass if request.path_info =~ /^\/auth\//
-
+  pass if request.path_info == "/"
   # /auth/twitter is captured by omniauth:
     # when the path info matches /auth/twitter, omniauth will redirect
   # to twitter
@@ -35,10 +36,6 @@ before do
 end
 
 
-# sets user id in session hask
-def set_userid (user_id)
-  session[:user_id] = user_id
-end
 
 get '/' do
   erb :"login.html"
@@ -68,7 +65,8 @@ end
 
 get '/auth/twitter/callback' do
   # probably you will need to create a user in the database too...
-  session[:uid] = env['omniauth.auth']['uid']
+  
+  session[:user_id] = env['omniauth.auth']['uid']
   # this is the main endpoint to your application
   redirect to('/')
 end
@@ -76,6 +74,7 @@ end
 get '/auth/failure' do
   # omniauth redirects to /auth/failure when it encounters a problem
   # so you can implement this as you please
+  redirect to('/')
 end
 
 post '/class/add/:id' do
