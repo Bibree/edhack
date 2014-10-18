@@ -11,7 +11,7 @@ post '/login' do
     username = params['username']
     password = params['password']
 
-    base_uri = 'https://mypavement.firebaseio.com/users'
+    base_uri = 'https://dazzling-fire2679.firebaseio.com/users'
     firebase = Firebase::Client.new(base_uri)
     
    # checkuser = firebase.get(username {'username' => username})
