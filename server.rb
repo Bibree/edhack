@@ -3,9 +3,50 @@ require "json"
 require "koala"
 require "pry"
 require "firebase"
+require "./classforms.rb"
 
 enable :sessions
-#comment
+
+# sets user id in session hask
+def set_userid (user_id)
+  session[:user_id] = user_id
+end
+
+
+get '/class' do
+  # all classes
+#  classes = get_posts(user_id)
+  erb :"classes.html.erb"
+end
+
+get '/class/add/:id' do
+  
+  erb :"add_classes.html.erb"
+end
+
+post '/class/add/:id' do
+  user = session[:user_id]
+  teacher = params[:teacher_handle]
+  classhashtag = params[:class_hashtag]
+  add_class user, teacher, classhashtag
+  redirect :to "/class"
+end
+
+
+post '/class/delete/:id' do
+  user = session[:user_id]
+  teacher = params[:teacher_handle]
+  classhashtag = params[:class_hashtag]
+  
+  remove_user user, teacher, classhashtag
+  redirect :to "/class"
+end
+
+
+get '/login' do
+  
+end
+
 post '/login' do
     
     username = params['username']
