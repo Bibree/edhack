@@ -5,13 +5,24 @@ require "pry"
 require "firebase"
 require "./classforms.rb"
 
-enable :sessions
+configure do
+  enable :sessions
+end
+
 
 # sets user id in session hask
 def set_userid (user_id)
   session[:user_id] = user_id
 end
 
+get '/' do
+  erb :"login.html"
+end
+
+# user has logged in from 
+post '/user/new' do
+  
+end
 
 get '/class' do
   # get list of classes
@@ -35,7 +46,7 @@ post '/class/add/:id' do
   teacher = params[:teacher_handle]
   classhashtag = params[:class_hashtag]
   add_class user, teacher, classhashtag
-  redirect :to "/class"
+  redirect "/class"
 end
 
 
@@ -45,7 +56,7 @@ post '/class/delete/:id' do
   classhashtag = params[:class_hashtag]
   
   remove_user user, teacher, classhashtag
-  redirect :to "/class"
+  redirect "/class"
 end
 
 

@@ -3,7 +3,7 @@
 #
 #
 
-  
+=begin  
 def add_class(user_id, teacher_handle, class_hashtag) do
   user_id = user +"/"
   
@@ -28,3 +28,4 @@ def get_posts (user_id)
 
 end
 
+=end
