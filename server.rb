@@ -20,9 +20,6 @@ end
 client = Twitter::REST::Client.new do |config|
     config.consumer_key    = 'BSuhlPmwPyPpQXVx486tWWnfn'
     config.consumer_secret = 'fMdOju0tjM9lvovnUidJqwdNxM06QDmW9UCB4VWhHnlRXORZjm'
-  #  config.access_token        = ""
-  #  config.access_token_secret = ""
-    
 end
 
 
@@ -69,8 +66,8 @@ end
 
 post '/class/add' do
   user = session[:user_id]
-  teacher = params[:teacherhandle]
-  classhashtag = params[:coursehashtag]
+  teacher = params[:teacherhandle].tr('@','')
+  classhashtag = params[:coursehashtag].tr('#','')
   course = add_class user, teacher, classhashtag
   
   redirect "/class/add"
