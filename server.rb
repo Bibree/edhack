@@ -61,11 +61,12 @@ get '/class/add' do
 end
 
 post '/class/add' do
-  binding.pry
+
   user = session[:user_id]
   teacher = params[:teacherhandle]
   classhashtag = params[:coursehashtag]
-  add_class user, teacher, classhashtag
+  course = add_class user, teacher, classhashtag
+
   redirect "/class"
 end
 
