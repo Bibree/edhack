@@ -28,10 +28,13 @@ p{
 }
 .add {
 	float: right;
-	margin: -1px 40px 0px 0px;
+	margin: 10px 40px 0px 0px;
 	background-color: #FFF;
 	width: 100px;
-	height: 40px;
+	height: 30px;
 	padding-bottom: 10px;
 	color: #ffa708;
+}
+
+h4 {margin-bottom:12px;
 }
