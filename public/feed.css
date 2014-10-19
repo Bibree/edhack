@@ -27,7 +27,11 @@ p{
 	color: #ffa708;
 }
 .add {
-	float:right;
-	margin: -5px 40px 0 0;
-	background
+	float: right;
+	margin: -1px 40px 0px 0px;
+	background-color: #FFF;
+	width: 100px;
+	height: 40px;
+	padding-bottom: 10px;
+	color: #ffa708;
 }
