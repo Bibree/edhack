@@ -39,14 +39,15 @@ end
 
 
 get '/' do
-  erb :"login.html"
+  if not session.has_key?(:user_id) or session[:user_id].nil?
+    erb :"login.html"
+  else
+    redirect "/feed"
+  end
 end
 
-
-get '/class' do
-  # get list of classes
-#  classes = get_posts(user_id)
-  erb :"classes.html.erb"
+get '/feed' do
+  erb :"feed.html"
 end
 
 get '/posts' do
@@ -55,17 +56,24 @@ get '/posts' do
   "stub"
 end
 
-get '/class/add/:id' do
-  
-  erb :"add_classes.html.erb"
+get '/class/add' do
+  erb :"addcourse.html"
 end
 
+post '/class/add' do
+  binding.pry
+  user = session[:user_id]
+  teacher = params[:teacherhandle]
+  classhashtag = params[:coursehashtag]
+  add_class user, teacher, classhashtag
+  redirect "/class"
+end
+
+
 get '/auth/twitter/callback' do
-  # probably you will need to create a user in the database too...
-  
-  session[:user_id] = env['omniauth.auth']['uid']
+  session[:user_id] = env['omniauth.auth']['info']['nickname']
   # this is the main endpoint to your application
-  redirect to('/')
+  redirect to('/feed')
 end
 
 get '/auth/failure' do
@@ -74,13 +82,6 @@ get '/auth/failure' do
   redirect to('/')
 end
 
-post '/class/add/:id' do
-  user = session[:user_id]
-  teacher = params[:teacher_handle]
-  classhashtag = params[:class_hashtag]
-  add_class user, teacher, classhashtag
-  redirect "/class"
-end
 
 
 post '/class/delete/:id' do
@@ -93,7 +94,5 @@ post '/class/delete/:id' do
 end
 
 
-get '/login' do
-  
-end
+
 

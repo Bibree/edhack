@@ -8,3 +8,4 @@ gem 'pry'
 gem 'firebase'
 gem 'omniauth-twitter'
 gem "mongoid"
+gem "twitter"
