@@ -41,10 +41,6 @@ get '/' do
   erb :"login.html"
 end
 
-# user has logged in from 
-post '/user/new' do
-  
-end
 
 get '/class' do
   # get list of classes
@@ -100,31 +96,3 @@ get '/login' do
   
 end
 
-post '/login' do
-    
-    username = params['username']
-    password = params['password']
-
-    base_uri = 'https://dazzling-fire2679.firebaseio.com/users'
-    firebase = Firebase::Client.new(base_uri)
-    
-   # checkuser = firebase.get(username {'username' => username})
-#    checkuser = firebase.get(password {'password' => password})
-    # does user exist?
-    database_password = firebase.get(base_uri + "/" + username + "/password").body
- 
-    if database_password == password
-        # success
-        session[:user] = username
-        redirect to "/profile"
-    else
-        # unsuccessful login
-        redirect to "/login"
-        puts "invalid Username, Password or Account does not exist"
-    end
-    
-    # yes? -> check password
-    
-    # checking password -> password matches?
-    
-end
