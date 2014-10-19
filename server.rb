@@ -6,6 +6,7 @@ require "firebase"
 require "./classforms.rb"
 require 'omniauth'
 require 'omniauth-twitter'
+require "mongoid"
 
 configure do
   enable :sessions
