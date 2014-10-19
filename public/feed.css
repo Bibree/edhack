@@ -1,50 +1,33 @@
-body{
-	background-color:#66ccff;
+body {
+	background-color:#ffa708;
 	color: #000000;
 	font-family: arial;
-	margin-top: 0px;
-	margin-bottom: 0px;
 }
 
+footer{
+	margin-top: 15%;
+}
 .logo {
-	width: 150px;
+	width: 400px;
+	margin-bottom: 70px;
 }
 
-.tab {
-	position: absolute;
-	width: 800px;
-	padding-bottom:10px;
+p{
+	margin-bottom:35px;
 }
-
-h5 {
-	border:3px;
-	border-radius: 5px;
-	border-color: #ffad33;
-	background-color: #ffad33;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-right:20px;
-	width: 80px;
+.twitter{
+	width:250px;
 }
-
-.mid {
-	background-color: #caeeff;
-	width: 800px;
-	height:100%;
-	margin-left:auto;
-	margin-right:auto;
-
+.whitebox {
+	margin-top:-70px;
+	width:1350px;
+	height:1000px;
+	background-color:#fff;
+	font-family: 'helvetica neue';
+	color: #ffa708;
 }
-
-img {
-	margin-top: 20px;
-}
-
-.post {
-	background-color: #ffffff;
-	color: #000000;
-	width: 500px;
-	height: 500px;
-	margin-left: auto;
-	margin-right: auto;
+.add {
+	float:right;
+	margin: -5px 40px 0 0;
+	background
 }
