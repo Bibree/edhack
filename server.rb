@@ -49,22 +49,23 @@ get '/' do
 end
 
 get '/feed' do
+  courses = get_classes(session[:user_id])
   erb :"feed.html"
 end
 
-get '/posts' do
-  # displays a list of all posts for all classes
-  posts = get_posts(session[:user_id])
-  "stub"
-end
+ get '/posts' do
+   # displays a list of all posts for all classes
+   posts = get_posts(session[:user_id])
+   "stub"
+ end
 
-get '/class/add' do
-  erb :"addcourse.html"
-end
+ get '/class/add' do
+   erb :"addcourse.html"
+ end
 
-post '/class/add' do
+ post '/class/add' do
 
-  user = session[:user_id]
+   user = session[:user_id]
   teacher = params[:teacherhandle]
   classhashtag = params[:coursehashtag]
   course = add_class user, teacher, classhashtag

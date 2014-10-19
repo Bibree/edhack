@@ -43,4 +43,8 @@ def add_class(user_id, teacher_handle, class_hashtag)
     
 end
 
+def get_classes(user_id)
+  user = User.where(userid: user_id).first
+  user.courses
+end
 
