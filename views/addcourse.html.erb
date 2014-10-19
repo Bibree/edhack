@@ -1,13 +1,34 @@
 <html>
   <head>
-    <link type="text/css" rel="stylesheet" href="feed.css"/>
+    <link type="text/css" rel="stylesheet" href="public/add.css"/>
     <title>Add Class</title>
+    <style>
+input[type=text] {
+    width: 300px;
+    display: block;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 4px solid #ffa708;
+    color: #000;
+    height:40px;
+
+}
+
+input[type=button] {
+    width: 150px;
+    margin-left: 35px;
+    display: button;
+    height: 30px;
+    background-color: #ffa700;
+
+}
+</style>
   </head>
   <body>
     <div class="mid">
       <div class="tab">
         <center>
-          <img class="logo" src="images/edify.png">
+          <img class="logo" src="images/edify.png" style="width:100px; height:50px;">
         </center>
 
         <h5 style="padding: 7px 10px 7px 10px; float: right;">
@@ -16,12 +37,13 @@
 
 
 
-      </div>
-      <div class="add_class">
+      </div><div class= "whitebox">
+
+      <div class="add_class" style="margin:0px 530px; padding-top:50px";>
           <form action="/class/add" method="post" >
             <input type="text" placeholder="Teacher's Twitter Handle" name="teacherhandle" />
             <input type="text" placeholder="Course Hashtag" name="coursehashtag" />
-            <input type="submit" value="submit" />
+            <input type="submit" value="submit" a href:/>
           </form>
 
 
@@ -37,4 +59,5 @@
       </div>
     </div>
   </body>
+</div>
 </html>
