@@ -66,7 +66,7 @@ post '/class/add' do
   teacher = params[:teacherhandle]
   classhashtag = params[:coursehashtag]
   course = add_class user, teacher, classhashtag
-
+  binding.pry
   redirect "/class"
 end
 
