@@ -31,8 +31,12 @@ def add_class(user_id, teacher_handle, class_hashtag)
   end
 
   course = user.courses.new(hashtag: class_hashtag, teacher: teacher_handle)
-
-  
+  if course.save
+    flash[:success] = "Message saved successfully."
+  else
+    flash[:success] = "Error. Message no saved."
+  end
+    
 end
 
 

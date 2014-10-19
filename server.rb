@@ -16,6 +16,8 @@ configure do
 
 end
 
+use Rack::Flash, :sweep => true
+
 
 helpers do
   # define a current_user method, so we can be sure if an user is
@@ -66,8 +68,10 @@ post '/class/add' do
   teacher = params[:teacherhandle]
   classhashtag = params[:coursehashtag]
   course = add_class user, teacher, classhashtag
-  binding.pry
-  redirect "/class"
+  
+  
+  
+  redirect "/class/add"
 end
 
 
