@@ -7,15 +7,23 @@ require "./classforms.rb"
 require 'omniauth'
 require 'omniauth-twitter'
 require "mongoid"
+require 'twitter'
 
 configure do
   enable :sessions
   use OmniAuth::Builder do
     provider :twitter, 'BSuhlPmwPyPpQXVx486tWWnfn', 'fMdOju0tjM9lvovnUidJqwdNxM06QDmW9UCB4VWhHnlRXORZjm'
   end
-
+ 
 end
 
+client = Twitter::REST::Client.new do |config|
+    config.consumer_key    = 'BSuhlPmwPyPpQXVx486tWWnfn'
+    config.consumer_secret = 'fMdOju0tjM9lvovnUidJqwdNxM06QDmW9UCB4VWhHnlRXORZjm'
+  #  config.access_token        = ""
+  #  config.access_token_secret = ""
+    
+end
 
 
 
@@ -49,23 +57,18 @@ get '/' do
 end
 
 get '/feed' do
-  courses = get_classes(session[:user_id])
+  @courses = get_classes(session[:user_id])
+  @client = client
   erb :"feed.html"
 end
 
- get '/posts' do
-   # displays a list of all posts for all classes
-   posts = get_posts(session[:user_id])
-   "stub"
- end
 
- get '/class/add' do
+get '/class/add' do
    erb :"addcourse.html"
- end
+end
 
- post '/class/add' do
-
-   user = session[:user_id]
+post '/class/add' do
+  user = session[:user_id]
   teacher = params[:teacherhandle]
   classhashtag = params[:coursehashtag]
   course = add_class user, teacher, classhashtag
@@ -76,13 +79,16 @@ end
 
 get '/auth/twitter/callback' do
   session[:user_id] = env['omniauth.auth']['info']['nickname']
+  
   # this is the main endpoint to your application
+  
   redirect to('/feed')
 end
 
 get '/auth/failure' do
   # omniauth redirects to /auth/failure when it encounters a problem
   # so you can implement this as you please
+
   redirect to('/')
 end
 
