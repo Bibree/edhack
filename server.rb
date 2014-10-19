@@ -16,7 +16,7 @@ configure do
 
 end
 
-use Rack::Flash, :sweep => true
+
 
 
 helpers do
@@ -69,8 +69,6 @@ post '/class/add' do
   classhashtag = params[:coursehashtag]
   course = add_class user, teacher, classhashtag
   
-  
-  
   redirect "/class/add"
 end
 
@@ -94,7 +92,7 @@ post '/class/delete/:id' do
   teacher = params[:teacher_handle]
   classhashtag = params[:class_hashtag]
   
-  remove_user user, teacher, classhashtag
+  remove_class user, teacher, classhashtag
   redirect "/class"
 end
 

@@ -24,17 +24,21 @@ end
 
 def add_class(user_id, teacher_handle, class_hashtag) 
   if user_exists?(user_id)
-    user = User.find(userid: user_id)
-  else
-    user = User.new(userid: user_id)
+
+    user = User.where(userid: user_id).first
     
+  else
+
+    user = User.new(userid: user_id)
+    user.save
+
   end
 
   course = user.courses.new(hashtag: class_hashtag, teacher: teacher_handle)
   if course.save
-    flash[:success] = "Message saved successfully."
+   # flash[:success] = "Message saved successfully."
   else
-    flash[:success] = "Error. Message no saved."
+    #flash[:success] = "Error. Message no saved."
   end
     
 end
