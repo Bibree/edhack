@@ -1,53 +1,40 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <link type="text/css" rel="stylesheet"
-	  href="feed.css"/>
+	<body>
+		<center>
 
-    <title>edify</title>
-  </head>
-  <body>
-<!-- this snippet prints tweets for each course -->
-    <% @courses.each do |course| %>
-    <div class="course">
-      <h2>Course: <%= course.hashtag %></h2>
-      <h2>Teacher: <%= course.teacher %></h2>
-       <% @client.search("from:@#{course.teacher} AND ##{course.hashtag}",:result_type => "recent").take(100).each do |tweet| %>
-       <div class="tweet">
-      <%= tweet.text %><br/>
-      </div>
-      <% end %>
- 
-    </div>
-    <% end %>
-<!-- end of snippet -->
-    <div class="mid">
-      <div class="tab">
-	<center>
-	  <img class="logo" src="images/edify.png">
-	</center>
-	
-	<h5 style="padding: 7px 10px 7px 10px; float: right;">
-	  ADD CLASS
-	</h5>
+			<img class="logo" src="images/edify.png" style="width:100px; height:50px;"><div class='add'>
+				<h4>ADD CLASS</h4></div>
+				<br>
+				<a href="https://api.twitter.com/oauth/authorize"></a>
+				<div class= "whitebox">
+				  <!-- this snippet prints tweets for each course -->
+                                  <% @courses.each do |course| %>
+                                  <div class="course">
+                                    <h2>Course: <%= course.hashtag %></h2>
+                                    <h2>Teacher: <%= course.teacher %></h2>
+                                    <% @client.search("from:@#{course.teacher} AND ##{course.hashtag}",:result_type => "recent").take(100).each do |tweet| %>
+                                    <div class="tweet">
+                                      <%= tweet.text %><br/>
+                                    </div>
+                                    <% end %>
+                                    
+                                  </div>
+                                  <% end %>
+                                  <!-- end of snippet -->
 
+						<form action='' post=''>
+						</form>
 
+				</div>
+			<footer>
+				&copy; 2014 edify
+			</footer>
 
-      </div>
-
-
-      <div class="post">
-	dghjs,hgdfgk
-
-
-
-
-
-
-
-
-
+		</center>
 
       </div>
     </div>
   </body>
+
 </html>

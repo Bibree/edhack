@@ -1,5 +1,5 @@
 body {
-	background-color:#caeeff;
+	background-color:#ffa708;
 	color: #000000;
 	font-family: arial;
 }
@@ -17,4 +17,13 @@ p{
 }
 .twitter{
 	width:250px;
+}
+.whitebox {
+	padding-top:0.1px;
+	padding-bottom:5px;
+	width:400px;
+	height:70px;
+  background-color:#fff;
+	font-family: 'helvetica neue';
+	color: #ffa708;
 }
